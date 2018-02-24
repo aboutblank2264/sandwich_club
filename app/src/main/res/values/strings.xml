@@ -12,6 +12,7 @@
 
     <!-- Error messages-->
     <string name="detail_error_message">Sandwich data not available</string>
+    <string name="back_menu">Back</string>
 
     <string-array name="sandwich_names">
         <item>Ham and cheese sandwich</item>
@@ -128,4 +129,14 @@
         </item>
     </string-array>
 
+
+    <!-- Sandwich Field Descriptions-->
+    <string name="alsoKnownAs">alsoKnownAs</string>
+    <string name="description">description</string>
+    <string name="ingredients">ingredients</string>
+    <string name="placeOfOrigin">placeOfOrigin</string>
+
+    <!-- Tab Names -->
+    <string name="description_tab">Description</string>
+    <string name="additional_info_tab">Additional Info</string>
 </resources>
