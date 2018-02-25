@@ -12,7 +12,6 @@ import com.udacity.sandwichclub.R;
 
 import java.util.List;
 
-
 public class DetailOtherFragment extends Fragment {
 
     @Nullable
@@ -44,11 +43,14 @@ public class DetailOtherFragment extends Fragment {
     }
 
     private String formatList(List<String> list) {
-        if(list != null) {
-            String toString = list.toString();
-
-            return toString.substring(1, toString.length() - 1);
+        StringBuilder stringBuilder = new StringBuilder();
+        if(list != null && !list.isEmpty()) {
+            for(String item : list) {
+                stringBuilder.append(item).append(",\n");
+            }
+            // strip the extra comma and new-line
+            stringBuilder.delete(stringBuilder.length() - 2, stringBuilder.length());
         }
-        return "";
+        return stringBuilder.toString();
     }
 }

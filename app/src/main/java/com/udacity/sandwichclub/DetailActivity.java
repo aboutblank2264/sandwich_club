@@ -67,7 +67,7 @@ public class DetailActivity extends AppCompatActivity {
         setTitle(sandwich.getMainName());
 
         //Create ViewPager
-        tabPageAdapter = new TabPageAdapter(getSupportFragmentManager(), createSandwichBundle(sandwich));
+        tabPageAdapter = new TabPageAdapter(getSupportFragmentManager(), createSandwichBundle(sandwich), this);
 
         viewPager = findViewById(R.id.view_pager);
         viewPager.setAdapter(tabPageAdapter);
