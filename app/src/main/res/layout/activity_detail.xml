@@ -5,39 +5,62 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundPrimary"
+    android:fitsSystemWindows="true"
     tools:context="com.udacity.sandwichclub.DetailActivity">
 
-    <android.support.constraint.ConstraintLayout
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" >
+        android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/image_iv"
-            android:layout_width="match_parent"
-            android:layout_height="230dp"
-            android:adjustViewBounds="true"
-            android:contentDescription="@string/sandwich_picture_content_description"
-            android:scaleType="centerCrop"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <android.support.v4.view.ViewPager
-            android:id="@+id/view_pager"
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapse_toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/image_iv">
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+            app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Headline"
+            app:titleEnabled="false" >
 
-            <android.support.v4.view.PagerTitleStrip
-                android:id="@+id/pager_title_strip"
+            <!--Image-->
+            <ImageView
+                android:id="@+id/image_iv"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="230dp"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/sandwich_picture_content_description"
+                android:scaleType="centerCrop"
+                app:layout_collapseMode="parallax" />
+
+            <!--Header Toolbar-->
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/detail_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
                 android:layout_gravity="top"
-                android:background="@color/colorPrimary"
-                android:textColor="#FFF" />
-        </android.support.v4.view.ViewPager>
-    </android.support.constraint.ConstraintLayout>
+                android:layout_marginBottom="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                android:background="@color/backgroundTransparent"
+                app:titleTextColor="@android:color/white"/>
+
+                 <!--Individual Tab Layout-->
+                <android.support.design.widget.TabLayout
+                    android:id="@+id/tab_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_gravity="bottom"
+                    android:background="@color/backgroundTransparent"
+                    app:tabIndicatorColor="@color/colorSecondary"
+                    app:tabSelectedTextColor="@android:color/white"
+                    app:tabTextColor="@color/colorSecondary"/>
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
 </android.support.design.widget.CoordinatorLayout>
 

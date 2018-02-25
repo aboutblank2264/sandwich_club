@@ -1,24 +1,21 @@
 package com.udacity.sandwichclub.ui;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.udacity.sandwichclub.R;
-
-import java.lang.ref.WeakReference;
+import java.util.List;
 
 public class TabPageAdapter extends FragmentPagerAdapter {
     private Bundle sandwichBundle;
-    private WeakReference<Context> context;
+    private List<String> tabNames;
 
-    public TabPageAdapter(FragmentManager fm, Bundle sandwichBundle, Context context) {
+    public TabPageAdapter(FragmentManager fm, Bundle sandwichBundle, List<String> tabNames) {
         super(fm);
 
         this.sandwichBundle = sandwichBundle;
-        this.context = new WeakReference<>(context);
+        this.tabNames = tabNames;
     }
 
     @Override
@@ -38,14 +35,9 @@ public class TabPageAdapter extends FragmentPagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
-        if(context != null) {
-            switch (position) {
-                case 0:
-                    return context.get().getString(R.string.description_tab);
-                case 1:
-                    return context.get().getString(R.string.additional_info_tab);
-                default:
-                   return null;
+        if(tabNames != null && !tabNames.isEmpty()) {
+            if(tabNames.size() > position) {
+                return tabNames.get(position);
             }
         }
         return null;
