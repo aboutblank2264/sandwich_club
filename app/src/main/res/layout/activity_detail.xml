@@ -8,6 +8,9 @@
     android:fitsSystemWindows="true"
     tools:context="com.udacity.sandwichclub.DetailActivity">
 
+    <!--CollapsingToolbarLayout reference:
+     http://blog.iamsuleiman.com/parallax-scrolling-tabs-design-support-library
+     -->
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

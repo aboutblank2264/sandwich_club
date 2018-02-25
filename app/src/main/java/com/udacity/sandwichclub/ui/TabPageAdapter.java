@@ -7,6 +7,10 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import java.util.List;
 
+/**
+ * Reference for ViewPager:
+ * https://developer.android.com/training/implementing-navigation/lateral.html#horizontal-paging
+ */
 public class TabPageAdapter extends FragmentPagerAdapter {
     private Bundle sandwichBundle;
     private List<String> tabNames;
